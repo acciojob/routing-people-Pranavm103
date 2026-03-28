@@ -10,12 +10,14 @@ function UserDetails() {
   useEffect(() => {
     setLoading(true);
 
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
-      .then(response => response.json())
-      .then(data => {
-        setUser(data);
-        setLoading(false);
-      });
+    setTimeout(() => {
+      fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+        .then(response => response.json())
+        .then(data => {
+          setUser(data);
+          setLoading(false);
+        });
+    }, 500);
   }, [id]);
 
   if (loading) {
@@ -25,6 +27,7 @@ function UserDetails() {
   return (
     <div>
       <p>Name: {user.name}</p>
+      <p>Username: {user.username}</p>
       <p>Email: {user.email}</p>
       <p>Phone: {user.phone}</p>
       <p>Website: {user.website}</p>
