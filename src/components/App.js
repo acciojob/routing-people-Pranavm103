@@ -1,13 +1,17 @@
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import UserList from './UserList';
+import UserDetails from './UserDetails';
 
-import React from "react";
-import './../styles/App.css';
-
-const App = () => {
+function App() {
   return (
-    <div>
-        {/* Do not remove the main div */}
+    <div className="App">
+      <Switch>
+        <Route exact path="/" component={UserList} />
+        <Route path="/users/:id" component={UserDetails} />
+      </Switch>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
